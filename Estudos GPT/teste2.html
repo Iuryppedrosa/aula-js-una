@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>CalculadoraGPT</title>
+    <style>
+      /* estilo para o botão */
+      button {
+        font-size: 20px;
+        padding: 10px 20px;
+        margin: 5px;
+        border: none;
+        background-color: #EEE;
+        cursor: pointer;
+      }
+      /* estilo para a tela da calculadora */
+      #resultado {
+        font-size: 24px;
+        padding: 10px;
+        background-color: #F8F8F8;
+        border: 1px solid #CCC;
+        text-align: right;
+        width: 300px;
+      }
+      /* estilo para a linha de botões */
+      .linha {
+        display: flex;
+      }
+    </style>
+    <script>
+      // função para calcular o resultado da operação selecionada
+      function calcular() {
+        // obter os valores de entrada
+        var x1 = parseFloat(document.getElementById('x1').value);
+        var x2 = parseFloat(document.getElementById('x2').value);
+        
+        // verificar qual operação foi selecionada
+        var operacao = document.getElementById('operacao').value;
+        var resultado = 0;
+        switch (operacao) {
+          case '+':
+            resultado = x1 + x2;
+            break;
+          case '-':
+            resultado = x1 - x2;
+            break;
+          case 'x':
+            resultado = x1 * x2;
+            break;
+          case '÷':
+            resultado = x1 / x2;
+            break;
+          default:
+            resultado = 0;
+        }
+        
+        // exibir o resultado ao usuário
+        document.getElementById('resultado').innerHTML = resultado.toString();
+      }
+    </script>
+  </head>
+  <body>
+    <div>
+      <label for="x1">x1:</label>
+      <input type="number" id="x1" name="x1">
+    </div>
+    <div>
+      <label for="x2">x2:</label>
+      <input type="number" id="x2" name="x2">
+    </div>
+    <div>
+      <label for="operacao">Operação:</label>
+      <select id="operacao" name="operacao">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="x">x</option>
+        <option value="÷">÷</option>
+      </select>
+    </div>
+    <button onclick="calcular()">Calcular</button>
+    <div id="resultado"></div>
+  </body>
+</html>
